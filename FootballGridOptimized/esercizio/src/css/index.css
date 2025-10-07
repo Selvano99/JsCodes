@@ -1,0 +1,132 @@
+/* ===== Base & Theme ===== */
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --zebra: #f9fafb;
+  --primary: #2563eb;
+  --primary-600: #1d4ed8;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 2rem 1rem;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
+        Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* ===== Table Card ===== */
+table {
+  width: min(900px, 95vw);
+  margin: 0 auto;
+  border-collapse: separate;       /* per border-radius su table */
+  border-spacing: 0;
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;                /* arrotonda anche thead */
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.04),
+    0 8px 24px rgba(0,0,0,.08);
+}
+
+/* Header */
+thead th {
+  background: linear-gradient(180deg, var(--primary), var(--primary-600));
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  font-size: .85rem;
+  padding: 14px 16px;
+  position: sticky; /* resta in alto se la tabella scrollbar-izza */
+  top: 0;
+  z-index: 1;
+}
+
+/* Celle */
+th, td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+/* Zebra striping + hover */
+tbody tr:nth-child(even) td {
+  background: var(--zebra);
+}
+
+tbody tr:hover td {
+  background: #eef2ff; /* leggero highlight */
+  transition: background .2s ease;
+}
+
+/* Allineamenti e tipografia */
+tbody td:first-child { 
+  font-weight: 600;
+}
+
+tbody td:nth-of-type(2),
+tfoot th:nth-of-type(2) {
+  text-align: right;                 /* numeri a destra */
+  font-variant-numeric: tabular-nums;/* cifre monospaziate per colonne ordinate */
+}
+
+/* Footer (totali) */
+tfoot th {
+  background: #f3f4f6;
+  color: var(--text);
+  font-weight: 700;
+  border-top: 2px solid var(--border);
+  border-bottom: 0;
+}
+
+/* Celle cliccabili (la 2ª colonna è quella che cambi con JS) */
+tbody td:nth-of-type(2) {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: transform .06s ease;
+}
+
+tbody td:nth-of-type(2):active {
+  transform: scale(0.98);
+}
+
+/* Focus accessibile (se rendi le celle focusable con tabindex in HTML) */
+tbody td:nth-of-type(2):focus {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+
+/* Piccoli schermi */
+@media (max-width: 600px) {
+  table { width: 100%; }
+  thead th { font-size: .8rem; padding: 12px 14px; }
+  th, td { padding: 12px 14px; }
+}
+
+/* (Opzionale) contenitore scrollabile orizzontale se la tabella è molto larga
+   Avvolgi la tabella in un div.table-scroll nel tuo HTML per abilitarlo.
+*/
+.table-scroll {
+  width: min(900px, 95vw);
+  margin: 0 auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 16px;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.04),
+    0 8px 24px rgba(0,0,0,.08);
+}

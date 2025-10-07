@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teams & Points – Demo</title>
+
+    <!-- Keep your CSS path if you already have it in the project structure.
+         Otherwise, you can remove this line or point it to your stylesheet. -->
+    <link rel="stylesheet" href="./src/css/index.css" />
+  </head>
+
+  <body>
+    <!-- Simple table showing teams and points.
+         Clicking a points cell will randomize that team's points and
+         update the total accordingly. -->
+    <table>
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="inter">
+          <td>Inter</td>
+          <td>35</td>
+        </tr>
+        <tr id="juventus">
+          <td>Juventus</td>
+          <td>31</td>
+        </tr>
+        <tr id="milan">
+          <td>Milan</td>
+          <td>26</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr id="total">
+          <th>Total points</th>
+          <th>92</th>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- Load the behavior. Place at the end of <body> (or use `defer`) so that
+         DOM elements exist when the script queries them. -->
+    <script src="./src/js/index.js"></script>
+  </body>
+</html>
