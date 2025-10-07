@@ -16,7 +16,7 @@ tagBox.onclick = function() {
 }
 
 tagButton.onclick = function() {
-    tagTriangle.innerHTML = tagTriangle.innerHTML + " Suca!";
+    tagTriangle.innerHTML = tagTriangle.innerHTML + " Ciao!";
 }
 tagBox.onmouseover = function() {
   tagBox.style.backgroundColor = "red";
@@ -30,3 +30,4 @@ tagBox.onmouseout = function() {
  * Handles the mouseover event for the tagBox element.
  * Changes the background color of the box to red when the mouse pointer enters it.
  */
+
